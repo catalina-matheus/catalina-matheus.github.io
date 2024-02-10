@@ -40,23 +40,31 @@ function inicializarPuntajes(){
         }
     }
 }
-// hace el conteo de números
-function reconteoPuntos(matriz){
-    const numerosSeleccionadosJSON = localStorage.getItem('numerosSeleccionados'); 
-    let numerosSeleccionados=[]; 
-    numerosSeleccionados = JSON.parse(numerosSeleccionadosJSON);
+// // hace el conteo de números
+// function reconteoPuntos(matriz){
+//     const numerosSeleccionadosJSON = localStorage.getItem('numerosSeleccionados'); 
+//     let numerosSeleccionados=[]; 
+//     numerosSeleccionados = JSON.parse(numerosSeleccionadosJSON);
 
-}
+// }
 
 // hace el conteo de puntos para línea horizontal: 
 function conteoHorizontal(matriz, numerosSeleccionados){
     let puntosObtenidos = 0; 
-    matriz.forEach(fila=>{
-        const numerosEnFila = fila.every(numero => numerosSeleccionados.includes(numero)); 
-        if(numerosEnFila.length>0){
-            puntosObtenidos++; 
+
+    for(let fila = 0; fila<tamanio; fila++){
+        if(numerosSeleccionados.includes(matriz[fila][0])){
+            let encontrado = true; 
+            for(let columna = 0; columna<tamanio; columna ++){
+                if(!numerosSeleccionados.includes(matriz[fila][columna])){
+                    encontrado = false; 
+                    break; 
+                }
+            }if(encontrado){
+                puntosObtenidos++; 
+            }
         }
-    })
+    }
     return puntosObtenidos; 
 }
 
@@ -122,6 +130,87 @@ function revisarCartonLleno(matriz, numerosSeleccionados){
     }
     return true; 
 }
+
+// función que revisa si se consigue un nuevo número en el cartón:
+//retorna un bool 
+function encontradoNúmero(matriz, numeroSeleccionado){
+   
+
+    for(let fila = 0; fila<tamanio; fila++){
+        for(let columna = 0; columna<tamanio; columna++){
+            if(matriz[fila][columna] === numeroSeleccionado){
+                return true; 
+            }
+        }
+    }return false; 
+} 
+
+// función que revisa si hay filas o carton lleno a partir de si se encontro un nuevo numero en el cartón
+// se suman también los puntos
+function revisarCartones(){
+    const numerosSeleccionadosJSON = localStorage.getItem('numerosSeleccionados'); 
+    let numerosSeleccionados=[]; 
+    numerosSeleccionados = JSON.parse(numerosSeleccionadosJSON);
+    const ultimoNum = numerosSeleccionados[numerosSeleccionados.length-1]; 
+    const encontradoNumCarton1 = encontradoNúmero(matriz1, ultimoNum); 
+    const encontradoNumCarton2 = encontradoNúmero(matriz2, ultimoNum); 
+    const encontradoNumCarton3 = encontradoNúmero(matriz3, ultimoNum); 
+    const encontradoNumCarton4 = encontradoNúmero(matriz4, ultimoNum);
+    let cartonLleno = false; 
+
+    if(encontradoNumCarton1){
+        let contadorPuntos1 = 0; 
+        if(revisarCartonLleno(matriz1, numerosSeleccionados)){
+            cartonLleno = true;  
+            puntajes[0].puntaje +=5; 
+        }else{
+            contadorPuntos1 += conteoHorizontal(matriz1, numerosSeleccionados); 
+            contadorPuntos1+= conteoVertical(matriz1, numerosSeleccionados); 
+            contadorPuntos1+= conteoDiagonal(matriz1, numerosSeleccionados); 
+            puntajes[0].puntaje = contadorPuntos1; 
+        }
+    }
+    if(encontradoNumCarton2){
+        let contadorPuntos2 = 0; 
+        if(revisarCartonLleno(matriz2, numerosSeleccionados)){
+            cartonLleno = true; 
+            puntajes[1].puntaje +=5; 
+
+        }else{
+            contadorPuntos2 += conteoHorizontal(matriz2, numerosSeleccionados); 
+            contadorPuntos2+= conteoVertical(matriz2, numerosSeleccionados); 
+            contadorPuntos2+= conteoDiagonal(matriz2, numerosSeleccionados); 
+            puntajes[1].puntaje = contadorPuntos2;  
+        }
+    }
+    if(encontradoNumCarton3){
+        let contadorPuntos3 = 0; 
+        if(revisarCartonLleno(matriz3, numerosSeleccionados)){
+            cartonLleno = true; 
+            puntajes[2].puntaje +=5; 
+        }else{
+            contadorPuntos3 += conteoHorizontal(matriz3, numerosSeleccionados); 
+            contadorPuntos3+= conteoVertical(matriz3, numerosSeleccionados); 
+            contadorPuntos3+= conteoDiagonal(matriz3, numerosSeleccionados); 
+            puntajes[2].puntaje = contadorPuntos3;  
+        }
+    }
+    if(encontradoNumCarton4){
+        let contadorPuntos4 = 0; 
+        if(revisarCartonLleno(matriz4, numerosSeleccionados)){
+            cartonLleno = true; 
+            puntajes[3].puntaje +=5;
+        }else{
+            contadorPuntos4+= conteoVertical(matriz4, numerosSeleccionados); 
+            contadorPuntos4+= conteoDiagonal(matriz4, numerosSeleccionados);
+            contadorPuntos4+= conteoHorizontal(matriz4, numerosSeleccionados); 
+            puntajes[3].puntaje = contadorPuntos4; 
+        }
+    }
+    return cartonLleno; 
+
+}
+
 
 
 // función para crear la matriz: 
@@ -220,7 +309,11 @@ document.getElementById("boton4").addEventListener("click",function(){
 })
 
 
-// contador de puntos: 
+// guardar contadores en localStorage
+function guardarPuntos(){
+    const puntajesJSON = JSON.stringify(puntajes); 
+    localStorage.setItem("puntosJuego", puntajesJSON); 
+}
 
 
 
