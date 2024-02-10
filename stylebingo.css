@@ -115,3 +115,24 @@ button{
     border: none; 
     color: white; 
 }
+
+/* estos es lo nuevo */
+.matrizfila{
+    display: flex;
+    justify-content: center;
+}
+.matrizcuadrado{
+    display: flex;
+    align-items: center;
+    width: 80px; 
+    height: 80px; 
+    background-color: lightgray;
+    font: 100% sans-serif;
+    color: grey; 
+    text-align: center; 
+    justify-content: center;
+    line-height: 40px; 
+    font-size: 40px; 
+    margin: 4px; 
+    border-radius: 7px;
+}

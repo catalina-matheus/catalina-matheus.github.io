@@ -18,6 +18,8 @@ crearMatriz(matriz2);
 crearMatriz(matriz3);
 crearMatriz(matriz4);
 
+pintarMatriz(matriz1); 
+
 // función para crear la matriz: 
 function crearMatriz(matriz){
     // primero creamos una matriz vacía de tamanioxtamanio: 
@@ -49,4 +51,24 @@ function existe(matriz, num){
     }return false; 
 }
 
+// funcion para pintar la matriz: 
+function pintarMatriz(matriz){
+    const container= document.getElementById('contenedorBingoCard'); 
+    container.innerHTML = ''; 
+    
+    for(let fila= 0; fila<tamanio; fila++){
+        const filaElemento = document.createElement('div'); 
+        filaElemento.classList.add('matrizfila'); 
+
+        for(let columna = 0; columna<tamanio; columna++){
+            const numero = matriz[fila][columna]// para guardar el numero que tengo que escribir en el cuadrado
+            const cuadrado = document.createElement('div'); 
+            cuadrado.classList.add('matrizcuadrado'); 
+            cuadrado.textContent = numero; 
+            filaElemento.appendChild(cuadrado); 
+            
+        }
+        container.appendChild(filaElemento); 
+    }
+}
 

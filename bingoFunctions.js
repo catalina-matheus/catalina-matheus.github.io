@@ -38,7 +38,4 @@ function cambiarBotones(){
     
 }
 
-
-
-
 // función para generar el tablero: 
