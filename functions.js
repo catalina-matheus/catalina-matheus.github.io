@@ -15,8 +15,11 @@ function guardarUsuarios(e){
    name2= document.getElementById("nombre2").value; 
    name3 = document.getElementById("nombre3").value; 
    name4 = document.getElementById("nombre4").value; 
-   const tamanio = document.getElementById("tamaniotabla").value; 
-   if(name1 !=="" && name2 !=="" && name3 !=="" && name4 !==""){
+   const tamanio = document.getElementById("tamaniotabla").value;
+   if(name1.length>8 || name2.length>8 || name3.length>8 || name4.length>8){
+    alert("Los usernames deben tener un máximo de 6 caracteres."); 
+   } 
+   else if(name1 !=="" && name2 !=="" && name3 !=="" && name4 !==""){
         // usernamesGames.push(name1); 
         // usernamesGames.push(name2); 
         // usernamesGames.push(name3); 
@@ -37,26 +40,7 @@ function guardarUsuarios(e){
     alert("Debe colocar todos los nombres");
    }
  
-//    console.log(name1); 
-//    console.log(name2);
-//    console.log(name3); 
-//    console.log(name4); 
-   // agregamos en el local storage los usuarios y el tamaño de las cartas: 
-//    let usernamesJSON = JSON.stringify(usernamesGames); 
-//    localStorage.setItem('usuarios', usernamesJSON); 
-//    localStorage.setlItem("usuarios",stringify(usernamesGames)); 
-//    localStorage.setItem("tamaño", tamanio); 
-   
 
 }
 
-// function cambiarBotones(){
-//     console.log(usernamesGames[0]); 
-//     console.log(usernamesGames[0]);
-//     console.log(usernamesGames[0]); 
-//     console.log(usernamesGames[0]);  
-//     document.getElementById("boton1").innerText = name1; 
-//     document.getElementById("boton2").innerText = name2;
-//     document.getElementById("boton3").innerText = name3;
-//     document.getElementById("boton4").innerText = name4;
-// }
+
