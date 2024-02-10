@@ -1,6 +1,10 @@
 let contadorTurnos = 0; // para llevar la cuenta de los turnos
 let numSeleccionados =[]; // lista con los números que ya se han sacado (para no repetir)
 
+// guardamos en el localstorage: 
+localStorage.setItem('numerosSeleccionados', JSON.stringify([])); 
+
+
 // generar el número aleatorio:
 
 // boton_agregar.addEventListener("click", guardarUsuarios); 
@@ -20,6 +24,8 @@ function elegirNumAleatorio(){
     // mostramos el contador en la vista: 
     let cont = document.getElementById("contador"); 
     cont.value = contadorTurnos; 
+    let numerosJSON = JSON.stringify(numSeleccionados); 
+    localStorage.setItem('numerosSeleccionados', numerosJSON); 
     console.log(numAleatorio);
 }
 

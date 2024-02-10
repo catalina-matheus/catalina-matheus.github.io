@@ -136,3 +136,14 @@ button{
     margin: 4px; 
     border-radius: 7px;
 }
+
+.matrizcuadradolleno{
+    background-color: rgb(167, 126, 133); 
+}
+
+
+/* #board{
+    display: flex;
+    justify-content: center; 
+
+} */
