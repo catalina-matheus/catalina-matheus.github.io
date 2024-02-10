@@ -1,0 +1,117 @@
+body{
+    background-color:rgb(206, 190, 190);
+    margin: 0; 
+    padding: 0;
+}
+
+header{
+    margin-top: 30px;
+    display: flex; 
+    justify-content: center;
+    margin-bottom: 5px;
+}
+.titulo{
+    color: rgb(183, 98, 112); 
+    font: 300% sans-serif; 
+    font-weight: bold;
+    display: flex; 
+    justify-content: center; 
+    
+
+}
+
+h2{
+    color: gray; 
+    font: 200% sans-serif;
+    font-weight: bold;
+    display: flex; 
+    justify-content: center; 
+    margin: 0;  
+}
+
+#contadorturnos{
+    display: flex; 
+    justify-content: center;
+}
+
+#contadorturnos #contador{
+    margin-left: 5px; 
+    margin-right: 5px;
+    background-color: rgb(178, 196, 203);
+    border-width: 3px;
+    border-style: solid; 
+    border-color: rgb(126, 138, 142);
+    border-radius: 8px;
+    width: 100px; 
+    height: 30px; 
+    text-indent: 45px; 
+    font-size: 20px;
+
+}
+
+#botonestableros{
+    display: flex; 
+    justify-content: center;
+    margin: 20px; 
+    
+}
+
+#botonestableros button{
+    background-color: rgb(167, 126, 133); 
+    width: 200px;
+    height: 40px;
+    margin: 10px;
+    border-radius: 8px;
+    font: 100% sans-serif;
+    border-style: solid; 
+    border-color: rgb(127, 91, 98);
+    border-width: 3px;
+}
+
+#sacarNum{
+    display: flex; 
+    justify-content: center; 
+}
+#reiniciar{
+    display: flex; 
+    justify-content: center; 
+
+}
+#fin{
+    position: fixed; 
+    bottom: 0; 
+    left: 0; 
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%; 
+    text-align: center;
+}
+p{
+    font: 120% sans-serif; 
+    color:rgb(22, 92, 154); 
+}
+
+#botonSacarNum{
+    background-color: rgb(37, 89, 149); 
+    color: white; 
+    width: 200px;
+    height: 40px;
+    margin: 10px;
+    border-radius: 8px;
+    font: 100% sans-serif;
+    border: none; 
+    
+}
+button{
+    background-color: grey; 
+    width: 200px;
+    height: 40px;
+    margin: 10px;
+    border-radius: 8px;
+    font: 100% sans-serif;
+    border-style: solid; 
+    border-width: 3px; 
+    border: none; 
+    color: white; 
+}

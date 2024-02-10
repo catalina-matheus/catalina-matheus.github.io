@@ -3,9 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>LuckyBingo</title>
+    <link rel ="stylesheet" href = "styles.css">
+    
 </head>
 <body>
-    
+    <header>
+        <img src="https://cdn-icons-png.flaticon.com/512/536/536044.png" height="80px"> 
+        <h1 class = "titulo">Lucky Bingo</h1>
+    </header>
+
+    <form>
+        <h2>Coloque el nombre de los 4 jugadores: </h2>
+        <div class = "contenedor-inputs">
+            <div id = input-jugador-1>
+                <p>Nombre jugador 1: <p>
+                <input id="nombre1"
+                type = "text"
+                placeholder="Ingrese el nombre"
+                />
+            </div>
+            <div id="input-jugador2">
+                <p>Nombre jugador 2:</p>
+                <input id="nombre2"
+                type = "text"
+                placeholder="Ingrese el nombre"
+                />
+            </div>
+            <div id="input-jugador-3">
+                <p>Nombre jugador 3:</p>
+                <input id="nombre3"
+                type = "text"
+                placeholder="Ingrese el nombre"
+                />
+            </div>
+            <div id="input-jugador4">
+                <p>Nombre jugador 4:</p>
+                <input id="nombre4"
+                type = "text"
+                placeholder="Ingrese el nombre"
+                />
+            </div>
+        </div>
+ 
+        <div class="contenedor-tamanio-bingo">
+            <div>
+                <h3>Ingrese el tamaño del cartón</h3>
+                <h4>Se puede desde 3 hasta 5.</h4>
+            </div>
+            <div id = "contenedortamanio">
+                <input id ="tamaniotabla"
+                    type ="number"
+                    max = 5
+                    min = 3
+                    value = 3
+                />
+            </div>
+        </div>
+        <div id="boton-comenzar">
+            <button>Atrás</button>
+            <button onclick="guardarUsuarios(event)">Comenzar juego</button>
+        </div>
+    </form> 
+  <script src="functions.js"></script>  
 </body>
 </html>

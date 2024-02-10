@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuckyBingo</title>
+    <link rel ="stylesheet" href = "stylebingo.css">
+</head>
+<body>
+    <header>
+        <img src="https://cdn-icons-png.flaticon.com/512/536/536044.png" height="80px"> 
+        <h1 class = "titulo">Lucky Bingo</h1>
+    </header>
+    <div id = "contadorturnos">
+        <h2>Turnos: </h2>
+        <input id = "contador"
+            type = "text"
+            value = "0"
+            readonly
+        />
+    </div>
+    <div id = "botonestableros">
+        <button id="boton1">Tablero 1</button>
+        <button id = "boton2">Tablero 2</button>
+        <button id="boton3">Tablero 3</button>
+        <button id="boton4">Tablero 4</button>   
+    </div>
+    
+    <!-- Aqui va el tablero!!!!! -->
+
+
+   <!-- <footer>
+        <button id="botonSacarNum">Sacar número</button>
+        <p id = "numeroSacado">Número sacado:</p>
+        <button>Reiniciar juego</button>
+    </footer> -->
+    <div id="fin">
+        <div id="sacarNum">
+            <button id="botonSacarNum">Sacar número</button>
+            <p id = "numeroSacado">Número sacado:</p>
+        </div>
+        <div id="reiniciar">
+            <button>Reiniciar juego</button>
+        </div>
+    </div>
+
+
+    <script src="functions.js"></script>
+    <script src="bingoFunctions.js"></script>
+
+    <!-- <script>cambiarBotones(event);</script> -->
+</body>
+</html>
