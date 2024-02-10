@@ -78,10 +78,6 @@ h2{
 
 }
 #fin{
-    position: fixed; 
-    bottom: 0; 
-    left: 0; 
-    right: 0;
     margin-left: auto;
     margin-right: auto;
     width: 80%; 

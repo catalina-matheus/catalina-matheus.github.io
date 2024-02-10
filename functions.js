@@ -32,7 +32,7 @@ function guardarUsuarios(e){
         let usernamesJSON = JSON.stringify(usernamesGames); 
         localStorage.setItem('usuarios', usernamesJSON);
         //guardamos el tamaño en el local storage: 
-           localStorage.setItem("tamaño", tamanio); 
+        localStorage.setItem("tamaño", tamanio); 
         //abrimos donde están las tarjetas del bingo:
         window.location.replace("bingo.html");
         cambiarBotones(); 
