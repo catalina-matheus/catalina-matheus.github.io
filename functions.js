@@ -25,16 +25,27 @@ function guardarUsuarios(e){
         usernamesGames[1]=name2;
         usernamesGames[2]=name3;  
         usernamesGames[3]=name4; 
+        // guardamos los usuarios en el localstorage: 
+        let usernamesJSON = JSON.stringify(usernamesGames); 
+        localStorage.setItem('usuarios', usernamesJSON);
+        //guardamos el tamaño en el local storage: 
+           localStorage.setItem("tamaño", tamanio); 
+        //abrimos donde están las tarjetas del bingo:
         window.location.replace("bingo.html");
         cambiarBotones(); 
    }else if(name1 =="" && name2 =="" && name3 =="" && name4 ==""){
     alert("Debe colocar todos los nombres");
    }
  
-   console.log(name1); 
-   console.log(name2);
-   console.log(name3); 
-   console.log(name4);  
+//    console.log(name1); 
+//    console.log(name2);
+//    console.log(name3); 
+//    console.log(name4); 
+   // agregamos en el local storage los usuarios y el tamaño de las cartas: 
+//    let usernamesJSON = JSON.stringify(usernamesGames); 
+//    localStorage.setItem('usuarios', usernamesJSON); 
+//    localStorage.setlItem("usuarios",stringify(usernamesGames)); 
+//    localStorage.setItem("tamaño", tamanio); 
    
 
 }
