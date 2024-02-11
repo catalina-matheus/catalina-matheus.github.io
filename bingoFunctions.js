@@ -18,6 +18,7 @@ function elegirNumAleatorio(){
         while(numSeleccionados.includes(numAleatorio)){
             numAleatorio =  Math.floor(Math.random()*50)+1; 
         }
+        pintarCeldaActual(numAleatorio); 
         let parrafo = document.getElementById("numeroSacado"); 
         parrafo.textContent = `Número sacado: ${numAleatorio}`; 
         numSeleccionados.push(numAleatorio); 

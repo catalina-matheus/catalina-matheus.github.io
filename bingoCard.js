@@ -260,6 +260,18 @@ function pintarMatriz(matriz){
         container.appendChild(filaElemento); 
     }
 }
+
+// función para pintar el numero en la matriz del momento (en tiempo real): 
+// se le pasa por parametro el numero que se saco en el momento
+function pintarCeldaActual(numero){
+    const celdas = document.querySelectorAll(".matrizcuadrado"); 
+    celdas.forEach(celda=>{
+        if(parseInt(celda.textContent) === numero){
+            celda.style.backgroundColor = "rgb(167, 126, 133)"; 
+            celda.style.color = "darkgray"; 
+        }
+    }); 
+}
 // para cuando se selecciona un jugador se vea su tablero: 
 const btn1 = document.getElementById("boton1"); 
 const btn2 = document.getElementById("boton2");
