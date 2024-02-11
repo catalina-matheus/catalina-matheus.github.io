@@ -125,6 +125,9 @@ document.addEventListener("DOMContentLoaded", function(){
             let celdaPuntos = document.createElement("td"); 
             celdaPuntos.textContent = listaHistorialGanadores[index].puntos; 
             filaTabla.appendChild(celdaPuntos); 
+            if((index+1)%2 === 0){
+                filaTabla.style.backgroundColor = "rgb(189, 181, 181)"; 
+            }
 
             //para la fila completa
             tbody.appendChild(filaTabla); 
@@ -137,6 +140,7 @@ document.addEventListener("DOMContentLoaded", function(){
         tablaGanadores.style.display = "none"; 
         document.getElementById("tituloTabla").style.display = "none"; 
         mensajeNoHayGanadores.style.display = "block"; 
+        
     }
 
 }); 

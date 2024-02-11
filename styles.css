@@ -103,32 +103,55 @@ button{
 
 /* estilos para la tabla */
 table{
-    width: 100%;
+    width: 100%; 
     border-collapse: collapse; 
-    display: flex; 
-    justify-content: center;
+    
 }
 
-th,td{
-    border-bottom: 4px solid rgb(178, 83, 101);
+/* th,td{
+    border-bottom: 2px solid rgb(178, 83, 101);
     padding: 10px; 
 }
 
 th:nth-child(2), td:nth-child(2){
-    border-left: 4px solid rgb(178, 83, 101);
+    border-left: 2px solid rgb(178, 83, 101);
 }
 
 th:nth-child(3), td:nth-child(3){
-    border-left: 4px solid rgb(178, 83, 101);
-}
+    border-left: 2px solid rgb(178, 83, 101);
+} */
 
 th{
    
     text-align: center; 
-    font-size: 16px; 
+    font-size: 20px; 
     font-family:100% sans-serif;
-    font-weight: bold;
-    color: rgb(188, 116, 129); 
+    font-weight: bolder;
+    color: rgb(167, 77, 93); 
+    background-color: rgb(173, 167, 167);
+    /* rgb(173, 167, 167) */
+    padding: 10px;
     
+}
+td{
+    text-align: center; 
+    font-size: 18px; 
+    font-family:100% sans-serif;
+    color: rgb(84, 81, 81); 
+    font-weight: bold;
+    padding: 10px; 
+
+}
+tr{
+    margin-top: 30px;
+}
+#mensajesNoHayGanadores{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: auto; 
+    color: rgb(142, 142, 55); 
+    /* rgb(142, 142, 55) amarillo */
+    /*  rgb(99, 154, 99) verde */
 }
 

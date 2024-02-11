@@ -86,13 +86,16 @@ function mostrarGanador(){
         if(puntajeMasAlto === 0){
             let caritaTriste = "\uD83D\uDE22"; 
             parrafo.textContent = `No hay ganador ${caritaTriste}`; 
+            parrafo.style.color = "rgb(142, 142, 55)"; 
            
         }
         else if(puntajeMasAlto === puntajes[1].puntaje){
             parrafo.textContent = `Tenemos 2 ganadores ${emojiCelebración}. ¡Felicidades ${puntajes[0].username} y ${puntajes[1].username} con ${puntajeMasAlto} punto(s)! Gracias por jugar ${corazon}`; 
+            parrafo.style.color = "rgb(99, 154, 99)"; 
         }
         else{
             parrafo.textContent = `Tenemos 1 ganador ${emojiCelebración}. ¡Felicidades  ${puntajes[0].username}! Tuviste ${puntajeMasAlto} puntos. Gracias por jugar ${corazon} `; 
+            parrafo.style.color = "rgb(99, 154, 99)"; 
         }
         let listaPuntajesJSON = JSON.stringify(puntajes); 
         localStorage.setItem('puntosJuego', listaPuntajesJSON);  
