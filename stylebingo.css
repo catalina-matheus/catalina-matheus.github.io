@@ -75,6 +75,7 @@ h2{
 #reiniciar{
     display: flex; 
     justify-content: center; 
+  
 
 }
 #fin{
@@ -146,8 +147,3 @@ button{
 }
 
 
-/* #board{
-    display: flex;
-    justify-content: center; 
-
-} */

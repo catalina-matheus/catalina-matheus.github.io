@@ -3,14 +3,14 @@ let contadorTurnos = 0; // para llevar la cuenta de los turnos
 let numSeleccionados =[]; // lista con los números que ya se han sacado (para no repetir)
 
 // guardamos en el localstorage: 
-localStorage.setItem('numerosSeleccionados', JSON.stringify([])); 
-
+localStorage.setItem('numerosSeleccionados', JSON.stringify([]));  
 
 // generar el número aleatorio:
 
 // boton_agregar.addEventListener("click", guardarUsuarios); 
 cambiarBotones(); 
 botonSacarNum.addEventListener("click", elegirNumAleatorio); // cuando se haga click en el botón se saca el num
+botonReiniciar.addEventListener("click", reiniciar); 
 // función que saca un número aleatorio y revisa que no se repita y le suma al contador de turnos
 function elegirNumAleatorio(){
     if(contadorTurnos+1 <=25){
@@ -30,16 +30,24 @@ function elegirNumAleatorio(){
         localStorage.setItem('numerosSeleccionados', numerosJSON); 
         console.log(numAleatorio);
         if(revisarCartones()){
-            console.log("Hay un ganador!!!!!"); 
+            alert("Hay un ganador!"); 
             guardarPuntos(); 
             mostrarGanador(); 
+            mostrarReiniciar(); 
         }
     }else{
         alert("Ya no quedan más turnos!");
         guardarPuntos(); 
-        mostrarGanador();  
+        mostrarGanador(); 
+        mostrarReiniciar();  
     }
     
+}
+
+// función que muestra el boton de reiniciar: 
+function mostrarReiniciar(){
+    let boton = document.getElementById("reiniciar"); 
+    boton.style.display = "block"; 
 }
 
 // funcion para cambiar los botones (colocarles el nombre del participante)
@@ -85,6 +93,11 @@ function mostrarGanador(){
         }
             
         }
+
          
+    }
+
+    function reiniciar(){
+        window.location.replace("index.html"); 
     }
 
