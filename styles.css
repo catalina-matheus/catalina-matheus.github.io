@@ -101,3 +101,34 @@ button{
 
 }
 
+/* estilos para la tabla */
+table{
+    width: 100%;
+    border-collapse: collapse; 
+    display: flex; 
+    justify-content: center;
+}
+
+th,td{
+    border-bottom: 4px solid rgb(178, 83, 101);
+    padding: 10px; 
+}
+
+th:nth-child(2), td:nth-child(2){
+    border-left: 4px solid rgb(178, 83, 101);
+}
+
+th:nth-child(3), td:nth-child(3){
+    border-left: 4px solid rgb(178, 83, 101);
+}
+
+th{
+   
+    text-align: center; 
+    font-size: 16px; 
+    font-family:100% sans-serif;
+    font-weight: bold;
+    color: rgb(188, 116, 129); 
+    
+}
+

@@ -93,8 +93,7 @@ function mostrarGanador(){
         }
             
         }
-
-         
+    
     }
 
     function reiniciar(){
