@@ -64,6 +64,7 @@ function actualizarHistorialPuntajes() {
         let object = {
           username: puntosUltimoJuego[indice].username,
           puntos: puntosUltimoJuego[indice].puntaje,
+          victorias: puntosUltimoJuego[indice].ganador
         };
         historialPuntajes.push(object);
       }
@@ -76,12 +77,14 @@ function actualizarHistorialPuntajes() {
         // revisar para agregar al mismo usuario los puntos nuevos!
         let username = puntosUltimoJuego[indice].username;
         let puntos = puntosUltimoJuego[indice].puntaje;
-        let existe = sumadorPuntosHisorico(username, puntos, historialPuntajes);
+        let victoria = puntosUltimoJuego[indice].ganador; 
+        let existe = sumadorPuntosHisorico(username, puntos, historialPuntajes,victoria);
         if (!existe) {
           // si no está se agrega el nuevo usuario al historial
           let objectAgregar = {
             username: username,
             puntos: puntos,
+            victorias: victoria
           };
           historialPuntajes.push(objectAgregar);
         }
@@ -98,13 +101,14 @@ function actualizarHistorialPuntajes() {
 }
 //función que itera sobre una lista de objetos y compara por username, si existe suma los puntos
 //retorna si lo encontró o no
-function sumadorPuntosHisorico(username, puntos, listaObjetos) {
+function sumadorPuntosHisorico(username, puntos, listaObjetos, victoria) {
   let usuarioExiste = false;
 
   listaObjetos.forEach(function (objeto) {
     if (objeto.username === username) {
       objeto.puntos += puntos;
       usuarioExiste = true;
+      objeto.victorias += victoria;
     }
   });
   return usuarioExiste;
@@ -141,6 +145,10 @@ document.addEventListener("DOMContentLoaded", function () {
         let celdaPuntos = document.createElement("td");
         celdaPuntos.textContent = listaHistorialGanadores[index].puntos;
         filaTabla.appendChild(celdaPuntos);
+        // para vistorias: 
+        let celdaVictorias = document.createElement("td"); 
+        celdaVictorias.textContent = listaHistorialGanadores[index].victorias; 
+        filaTabla.appendChild(celdaVictorias); 
         if ((index + 1) % 2 === 0) {
           filaTabla.style.backgroundColor = "rgb(189, 181, 181)";
         }

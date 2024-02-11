@@ -33,7 +33,8 @@ function inicializarPuntajes(){
         for(const usuario of usuarios){
             let objetoUsuario = {
                 username: usuario,
-                puntaje: 0
+                puntaje: 0,
+                ganador: 0
             }; 
             puntajes.push(objetoUsuario); 
 

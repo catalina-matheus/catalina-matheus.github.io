@@ -106,6 +106,8 @@ function mostrarGanador(){
             anuncio2.textContent = `${puntajes[1].username}: ${puntajes[1].puntaje}ptos`; 
             anuncio3.textContent = `${puntajes[2].username}: ${puntajes[2].puntaje}ptos`; 
             anuncio4.textContent = `${puntajes[3].username}: ${puntajes[3].puntaje}ptos`; 
+            puntajes[0].ganador = 1; 
+            puntajes[1].ganador = 1; 
             parrafo.style.color = "rgb(99, 154, 99)"; 
             // anuncio1.style.color = "rgb(99, 154, 99)";
             // anuncio2.style.color = "rgb(99, 154, 99)"; 
@@ -119,6 +121,7 @@ function mostrarGanador(){
             anuncio3.textContent = `${puntajes[2].username}: ${puntajes[2].puntaje}ptos`; 
             anuncio4.textContent = `${puntajes[3].username}: ${puntajes[3].puntaje}ptos`; 
             parrafo.style.color = "rgb(99, 154, 99)"; 
+            puntajes[0].ganador = 1; 
             // anuncio1.style.color = "rgb(99, 154, 99)";
             // anuncio2.style.color = "rgb(99, 154, 99)"; 
             // anuncio3.style.color = "rgb(99, 154, 99)"; 
