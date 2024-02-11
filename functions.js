@@ -102,6 +102,7 @@ function actualizarHistorialPuntajes(){
 
 // para desplegar la tabla con los ganadores cuando se termine de cargar la página: 
 document.addEventListener("DOMContentLoaded", function(){
+    if(window.location.pathname ==="/index.html"){
     let historialGanadoresJSON = localStorage.getItem("historialPuntajes"); // donde estan el historial 
     let tablaGanadores = document.getElementById("tablaGanadores"); // la tabla de ganadores
     let mensajeNoHayGanadores = document.getElementById("mensajesNoHayGanadores");  // el mensaje si no hay ganadores
@@ -142,5 +143,5 @@ document.addEventListener("DOMContentLoaded", function(){
         mensajeNoHayGanadores.style.display = "block"; 
         
     }
-
+}
 }); 

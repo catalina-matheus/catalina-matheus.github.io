@@ -146,4 +146,12 @@ button{
     justify-content: center;
 }
 
-
+.anuncios{
+    display: flex;
+    align-items: center; 
+    font: 100% sans-serif;
+    justify-content: center;
+    margin-bottom: 3px;
+    color: rgb(64, 28, 34);
+   
+}

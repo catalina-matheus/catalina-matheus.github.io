@@ -72,30 +72,56 @@ function cambiarBotones(){
 function mostrarGanador(){
    
     const puntajesJSON = localStorage.getItem('puntosJuego'); 
-    let puntaje1 = 0; 
-    let puntaje2 = 0; 
-    let puntaje3 = 0; 
-    let puntaje4 = 0; 
+ 
     if(puntajesJSON && puntajesJSON !=="[]"){
         const puntajes = JSON.parse(puntajesJSON); 
         puntajes.sort((a,b)=>b.puntaje -a.puntaje);
         let puntajeMasAlto = puntajes[0].puntaje; 
         let parrafo = document.getElementById("ganador");
+        let anuncio1 = document.getElementById("anuncioP1");
+        let anuncio2 = document.getElementById("anuncioP2");
+        let anuncio3 = document.getElementById("anuncioP3");
+        let anuncio4 = document.getElementById("anuncioP4");
         let corazon = "\uD83D\uDC9E"; 
         let emojiCelebración = "\uD83C\uDF89";
         if(puntajeMasAlto === 0){
             let caritaTriste = "\uD83D\uDE22"; 
-            parrafo.textContent = `No hay ganador ${caritaTriste}`; 
+            parrafo.textContent = `No hay ganador ${caritaTriste}. Gracias por jugar ${corazon} `; 
+            anuncio1.textContent = `${puntajes[0].username}: ${puntajeMasAlto}ptos`; 
+            anuncio2.textContent = `${puntajes[1].username}: ${puntajeMasAlto}ptos`; 
+            anuncio3.textContent = `${puntajes[2].username}: ${puntajeMasAlto}ptos`; 
+            anuncio4.textContent = `${puntajes[3].username}: ${puntajeMasAlto}ptos`; 
+
             parrafo.style.color = "rgb(142, 142, 55)"; 
+            // anuncio1.style.color = "rgb(99, 154, 99)";
+            // anuncio2.style.color = "rgb(99, 154, 99)"; 
+            // anuncio3.style.color = "rgb(99, 154, 99)"; 
+            // anuncio4.style.color = "rgb(99, 154, 99)"; 
            
         }
         else if(puntajeMasAlto === puntajes[1].puntaje){
             parrafo.textContent = `Tenemos 2 ganadores ${emojiCelebración}. ¡Felicidades ${puntajes[0].username} y ${puntajes[1].username} con ${puntajeMasAlto} punto(s)! Gracias por jugar ${corazon}`; 
+            anuncio1.textContent = `${puntajes[0].username}: ${puntajeMasAlto}`; 
+            anuncio2.textContent = `${puntajes[1].username}: ${puntajes[1].puntaje}ptos`; 
+            anuncio3.textContent = `${puntajes[2].username}: ${puntajes[2].puntaje}ptos`; 
+            anuncio4.textContent = `${puntajes[3].username}: ${puntajes[3].puntaje}ptos`; 
             parrafo.style.color = "rgb(99, 154, 99)"; 
+            // anuncio1.style.color = "rgb(99, 154, 99)";
+            // anuncio2.style.color = "rgb(99, 154, 99)"; 
+            // anuncio3.style.color = "rgb(99, 154, 99)"; 
+            // anuncio4.style.color = "rgb(99, 154, 99)";  
         }
         else{
             parrafo.textContent = `Tenemos 1 ganador ${emojiCelebración}. ¡Felicidades  ${puntajes[0].username}! Tuviste ${puntajeMasAlto} puntos. Gracias por jugar ${corazon} `; 
+            anuncio1.textContent = `${puntajes[0].username}: ${puntajeMasAlto}ptos`; 
+            anuncio2.textContent = `${puntajes[1].username}: ${puntajes[1].puntaje}ptos`; 
+            anuncio3.textContent = `${puntajes[2].username}: ${puntajes[2].puntaje}ptos`; 
+            anuncio4.textContent = `${puntajes[3].username}: ${puntajes[3].puntaje}ptos`; 
             parrafo.style.color = "rgb(99, 154, 99)"; 
+            // anuncio1.style.color = "rgb(99, 154, 99)";
+            // anuncio2.style.color = "rgb(99, 154, 99)"; 
+            // anuncio3.style.color = "rgb(99, 154, 99)"; 
+            // anuncio4.style.color = "rgb(99, 154, 99)"; 
         }
         let listaPuntajesJSON = JSON.stringify(puntajes); 
         localStorage.setItem('puntosJuego', listaPuntajesJSON);  
