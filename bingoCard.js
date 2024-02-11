@@ -127,8 +127,6 @@ function revisarCartonLleno(matriz, numerosSeleccionados){
 // función que revisa si se consigue un nuevo número en el cartón:
 //retorna un bool 
 function encontradoNúmero(matriz, numeroSeleccionado){
-   
-
     for(let fila = 0; fila<tamanio; fila++){
         for(let columna = 0; columna<tamanio; columna++){
             if(matriz[fila][columna] === numeroSeleccionado){

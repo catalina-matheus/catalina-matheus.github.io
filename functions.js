@@ -51,7 +51,11 @@ function actualizarHistorialPuntajes() {
     JSON.parse(localStorage.getItem("historialPuntajes")) || [];
   let datosActualizados = false;
 
-  if (puntosUltimoJuegoJSON && puntosUltimoJuegoJSON !== "[]") {
+  if (
+    puntosUltimoJuegoJSON &&
+    puntosUltimoJuegoJSON !== "[]" &&
+    JSON.parse(puntosUltimoJuegoJSON).length > 0
+  ) {
     datosActualizados = true;
     let puntosUltimoJuego = JSON.parse(puntosUltimoJuegoJSON);
     if (historialPuntajes == []) {
@@ -108,7 +112,10 @@ function sumadorPuntosHisorico(username, puntos, listaObjetos) {
 
 // para desplegar la tabla con los ganadores cuando se termine de cargar la página:
 document.addEventListener("DOMContentLoaded", function () {
-  if (window.location.pathname === "/index.html") {
+  if (
+    window.location.pathname === "/index.html" ||
+    window.location.pathname === "/"
+  ) {
     let historialGanadoresJSON = localStorage.getItem("historialPuntajes"); // donde estan el historial
     let tablaGanadores = document.getElementById("tablaGanadores"); // la tabla de ganadores
     let mensajeNoHayGanadores = document.getElementById(
@@ -141,16 +148,16 @@ document.addEventListener("DOMContentLoaded", function () {
         //para la fila completa
         tbody.appendChild(filaTabla);
       }
-    //   document.querySelectorAll(".listaGanadores").classList.add("display-block");
       tablaGanadores.style.display = "table";
-    //   document.querySelectorAll(".listaGanadores").classList.add("display-block");
       mensajeNoHayGanadores.style.display = "none";
     } else {
-        mensajeNoHayGanadores.style.display = "block";
+      // if (window.location.pathname === "/index.html") {
+      mensajeNoHayGanadores.style.display = "block";
       document.getElementById("tablaGanadores").style.display = "none";
       document.getElementById("tituloTabla").style.display = "none";
-     
-    //   document.querySelectorAll(".listaGanadores").classList.add("oculto");
+      // }
+      // document.getElementById("tablaGanadores").style.display = "none";
+      // document.getElementById("tituloTabla").style.display = "none";
     }
   }
 });
