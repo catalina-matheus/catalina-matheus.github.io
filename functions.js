@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", function(){
         mensajeNoHayGanadores.style.display = "none"; 
 
     }else{
-        tablaGanadores.style.display = "none"; 
+        document.getElementById("tablaGanadores").style.display = "none"; 
         document.getElementById("tituloTabla").style.display = "none"; 
         mensajeNoHayGanadores.style.display = "block"; 
         
