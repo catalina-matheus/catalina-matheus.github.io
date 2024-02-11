@@ -34,12 +34,15 @@ function elegirNumAleatorio(){
             guardarPuntos(); 
             mostrarGanador(); 
             mostrarReiniciar(); 
+            actualizarHistorialPuntajes(); 
         }
     }else{
         alert("Ya no quedan más turnos!");
         guardarPuntos(); 
         mostrarGanador(); 
-        mostrarReiniciar();  
+        mostrarReiniciar(); 
+        actualizarHistorialPuntajes();
+
     }
     
 }
@@ -86,13 +89,15 @@ function mostrarGanador(){
            
         }
         else if(puntajeMasAlto === puntajes[1].puntaje){
-            parrafo.textContent = `Tenemos 2 ganadores ${emojiCelebración}. ¡Felicidades ${puntajes[0].username} y ${puntajes[1].username} con ${puntajeMasAlto}! Gracias por jugar ${corazon}`; 
+            parrafo.textContent = `Tenemos 2 ganadores ${emojiCelebración}. ¡Felicidades ${puntajes[0].username} y ${puntajes[1].username} con ${puntajeMasAlto} punto(s)! Gracias por jugar ${corazon}`; 
         }
         else{
             parrafo.textContent = `Tenemos 1 ganador ${emojiCelebración}. ¡Felicidades  ${puntajes[0].username}! Tuviste ${puntajeMasAlto} puntos. Gracias por jugar ${corazon} `; 
         }
-            
+        let listaPuntajesJSON = JSON.stringify(puntajes); 
+        localStorage.setItem('puntosJuego', listaPuntajesJSON);  
         }
+       
     
     }
 

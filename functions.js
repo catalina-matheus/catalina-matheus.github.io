@@ -6,6 +6,7 @@ let name2 ="";
 let name3 =""; 
 let name4 =""; 
 
+// actualizarHistorialPuntajes(); 
 
 
 function guardarUsuarios(e){
@@ -46,8 +47,10 @@ function guardarUsuarios(e){
 function actualizarHistorialPuntajes(){
     const puntosUltimoJuegoJSON = localStorage.getItem("puntosJuego"); 
     let historialPuntajes = JSON.parse(localStorage.getItem("historialPuntajes"))||[]; 
+    let datosActualizados = false; 
 
     if(puntosUltimoJuegoJSON && puntosUltimoJuegoJSON !=="[]"){
+        datosActualizados = true; 
         let puntosUltimoJuego = JSON.parse(puntosUltimoJuegoJSON); 
         if(historialPuntajes ==[]){
             puntosUltimoJuego.sort((a,b)=>b.puntaje-a.puntaje); 
@@ -57,21 +60,45 @@ function actualizarHistorialPuntajes(){
                     puntos: puntosUltimoJuego[indice].puntaje
                 }
                 historialPuntajes.push(object); 
-            }localStorage.setItem(historialPuntajes,JSON.stringify(historialPuntajes)); 
+            }localStorage.setItem('historialPuntajes',JSON.stringify(historialPuntajes)); 
 
         }else{
             for(let indice = 0; indice<puntosUltimoJuego.length; indice++){
 // revisar para agregar al mismo usuario!
+                let username = puntosUltimoJuego[indice].username; 
+                let puntos = puntosUltimoJuego[indice].puntaje; 
+                let existe = sumadorPuntosHisorico(username, puntos,historialPuntajes); 
+                if(!existe){
+                    let objectAgregar = {
+                        username: username, 
+                        puntos: puntos
+                    }
+                    historialPuntajes.push(objectAgregar); 
+                }
             }
+            historialPuntajes.sort((a,b)=>b.puntos - a.puntos);
+            localStorage.setItem('historialPuntajes',JSON.stringify(historialPuntajes));  
+
         }
     }
-   
-  
-// const puntajes = JSON.parse(puntajesJSON); 
 
-    // localStorage.setItem(historialPuntajes,[]); 
+    return datosActualizados; 
+
 }
+   //función que itera sobre una lista de objetos y compara por username, si existe suma los puntos
+    //retorna si lo encontró o no
+    function sumadorPuntosHisorico(username, puntos, listaObjetos){
+        let usuarioExiste = false; 
+       
+        listaObjetos.forEach(function(objeto){
+            if(objeto.username === username){
+                objeto.puntos += puntos; 
+                usuarioExiste = true; 
+            }
 
+        })
+        return usuarioExiste; 
+    }
 // if(puntajesJSON && puntajesJSON !=="[]"){
 //     const puntajes = JSON.parse(puntajesJSON); 
 //     puntajes.sort((a,b)=>b.puntaje -a.puntaje);
