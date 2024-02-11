@@ -5,9 +5,8 @@ let name1 ="";
 let name2 =""; 
 let name3 =""; 
 let name4 =""; 
-// let tamanio=0; 
-// console.log(boton_agregar);
-// boton_agregar.addEventListener("click", guardarUsuarios); 
+
+
 
 function guardarUsuarios(e){
     e.preventDefault(); 
@@ -43,4 +42,36 @@ function guardarUsuarios(e){
 
 }
 
+// función para crear en el localStorage el historial de puntajes:
+function actualizarHistorialPuntajes(){
+    const puntosUltimoJuegoJSON = localStorage.getItem("puntosJuego"); 
+    let historialPuntajes = JSON.parse(localStorage.getItem("historialPuntajes"))||[]; 
 
+    if(puntosUltimoJuegoJSON && puntosUltimoJuegoJSON !=="[]"){
+        let puntosUltimoJuego = JSON.parse(puntosUltimoJuegoJSON); 
+        if(historialPuntajes ==[]){
+            puntosUltimoJuego.sort((a,b)=>b.puntaje-a.puntaje); 
+            for(let indice = 0; indice<puntosUltimoJuego.length; indice++){
+                let object={
+                    username: puntosUltimoJuego[indice].username, 
+                    puntos: puntosUltimoJuego[indice].puntaje
+                }
+                historialPuntajes.push(object); 
+            }localStorage.setItem(historialPuntajes,JSON.stringify(historialPuntajes)); 
+
+        }else{
+            for(let indice = 0; indice<puntosUltimoJuego.length; indice++){
+// revisar para agregar al mismo usuario!
+            }
+        }
+    }
+   
+  
+// const puntajes = JSON.parse(puntajesJSON); 
+
+    // localStorage.setItem(historialPuntajes,[]); 
+}
+
+// if(puntajesJSON && puntajesJSON !=="[]"){
+//     const puntajes = JSON.parse(puntajesJSON); 
+//     puntajes.sort((a,b)=>b.puntaje -a.puntaje);
