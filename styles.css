@@ -98,7 +98,11 @@ button{
     border-style: solid; 
     border-color: rgb(127, 91, 98);
     border-width: 3px;
+    transition: transform 0.2s; 
 
+}
+button:hover, button:active{
+    transform: scale(1.1);
 }
 
 /* estilos para la tabla */

@@ -67,6 +67,12 @@ h2{
     border-color: rgb(127, 91, 98);
     border-width: 3px;
 }
+button{
+    transition: transform 0.1s; 
+}
+button:hover, button:active{
+    transform: scale(1.1); 
+}
 
 #sacarNum{
     display: flex; 
@@ -98,6 +104,7 @@ p{
     border-radius: 8px;
     font: 100% sans-serif;
     border: none; 
+    margin-right: 16px;
     
 }
 button{
