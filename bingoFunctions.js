@@ -102,7 +102,7 @@ function mostrarGanador(){
         }
         else if(puntajeMasAlto === puntajes[1].puntaje){
             parrafo.textContent = `Tenemos 2 ganadores ${emojiCelebración}. ¡Felicidades ${puntajes[0].username} y ${puntajes[1].username} con ${puntajeMasAlto} punto(s)! Gracias por jugar ${corazon}`; 
-            anuncio1.textContent = `${puntajes[0].username}: ${puntajeMasAlto}`; 
+            anuncio1.textContent = `${puntajes[0].username}: ${puntajeMasAlto}ptos`; 
             anuncio2.textContent = `${puntajes[1].username}: ${puntajes[1].puntaje}ptos`; 
             anuncio3.textContent = `${puntajes[2].username}: ${puntajes[2].puntaje}ptos`; 
             anuncio4.textContent = `${puntajes[3].username}: ${puntajes[3].puntaje}ptos`; 
