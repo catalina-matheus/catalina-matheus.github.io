@@ -64,11 +64,11 @@ function actualizarHistorialPuntajes(){
 
         }else{
             for(let indice = 0; indice<puntosUltimoJuego.length; indice++){
-// revisar para agregar al mismo usuario!
+                // revisar para agregar al mismo usuario los puntos nuevos!
                 let username = puntosUltimoJuego[indice].username; 
                 let puntos = puntosUltimoJuego[indice].puntaje; 
                 let existe = sumadorPuntosHisorico(username, puntos,historialPuntajes); 
-                if(!existe){
+                if(!existe){ // si no está se agrega el nuevo usuario al historial 
                     let objectAgregar = {
                         username: username, 
                         puntos: puntos
@@ -76,7 +76,7 @@ function actualizarHistorialPuntajes(){
                     historialPuntajes.push(objectAgregar); 
                 }
             }
-            historialPuntajes.sort((a,b)=>b.puntos - a.puntos);
+            historialPuntajes.sort((a,b)=>b.puntos - a.puntos); // para ordenar y que quede el usuario con mayor puntaje de primero 
             localStorage.setItem('historialPuntajes',JSON.stringify(historialPuntajes));  
 
         }
@@ -85,7 +85,7 @@ function actualizarHistorialPuntajes(){
     return datosActualizados; 
 
 }
-   //función que itera sobre una lista de objetos y compara por username, si existe suma los puntos
+    //función que itera sobre una lista de objetos y compara por username, si existe suma los puntos
     //retorna si lo encontró o no
     function sumadorPuntosHisorico(username, puntos, listaObjetos){
         let usuarioExiste = false; 
@@ -99,6 +99,44 @@ function actualizarHistorialPuntajes(){
         })
         return usuarioExiste; 
     }
-// if(puntajesJSON && puntajesJSON !=="[]"){
-//     const puntajes = JSON.parse(puntajesJSON); 
-//     puntajes.sort((a,b)=>b.puntaje -a.puntaje);
+
+// para desplegar la tabla con los ganadores cuando se termine de cargar la página: 
+document.addEventListener("DOMContentLoaded", function(){
+    let historialGanadoresJSON = localStorage.getItem("historialPuntajes"); // donde estan el historial 
+    let tablaGanadores = document.getElementById("tablaGanadores"); // la tabla de ganadores
+    let mensajeNoHayGanadores = document.getElementById("mensajesNoHayGanadores");  // el mensaje si no hay ganadores
+    if(historialGanadoresJSON && historialGanadoresJSON !=="[]"){
+        let listaHistorialGanadores = JSON.parse(historialGanadoresJSON);// lista de objetos
+        console.log(listaHistorialGanadores); 
+        
+        let tbody = tablaGanadores.querySelector('tbody'); 
+        tbody.innerHTML=""; 
+        for(let index = 0; index<listaHistorialGanadores.length; index++){
+            let filaTabla = document.createElement("tr"); 
+            //para posicion 
+            let celdaPosicion = document.createElement("td"); 
+            celdaPosicion.textContent = index +1; 
+            filaTabla.appendChild(celdaPosicion); 
+            //para nombre
+            let celdaNombre = document.createElement("td"); 
+            celdaNombre.textContent = listaHistorialGanadores[index].username; 
+            filaTabla.appendChild(celdaNombre); 
+            //para puntos
+            let celdaPuntos = document.createElement("td"); 
+            celdaPuntos.textContent = listaHistorialGanadores[index].puntos; 
+            filaTabla.appendChild(celdaPuntos); 
+
+            //para la fila completa
+            tbody.appendChild(filaTabla); 
+
+        }
+        tablaGanadores.style.display = "table"; 
+        mensajeNoHayGanadores.style.display = "none"; 
+
+    }else{
+        tablaGanadores.style.display = "none"; 
+        document.getElementById("tituloTabla").style.display = "none"; 
+        mensajeNoHayGanadores.style.display = "block"; 
+    }
+
+}); 
