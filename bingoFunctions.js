@@ -1,3 +1,4 @@
+
 let contadorTurnos = 0; // para llevar la cuenta de los turnos
 let numSeleccionados =[]; // lista con los números que ya se han sacado (para no repetir)
 
@@ -31,10 +32,12 @@ function elegirNumAleatorio(){
         if(revisarCartones()){
             console.log("Hay un ganador!!!!!"); 
             guardarPuntos(); 
+            mostrarGanador(); 
         }
     }else{
         alert("Ya no quedan más turnos!");
-        guardarPuntos();  
+        guardarPuntos(); 
+        mostrarGanador();  
     }
     
 }
@@ -54,4 +57,34 @@ function cambiarBotones(){
     
 }
 
-// función para generar el tablero: 
+// función para mostrar ganador: 
+function mostrarGanador(){
+   
+    const puntajesJSON = localStorage.getItem('puntosJuego'); 
+    let puntaje1 = 0; 
+    let puntaje2 = 0; 
+    let puntaje3 = 0; 
+    let puntaje4 = 0; 
+    if(puntajesJSON && puntajesJSON !=="[]"){
+        const puntajes = JSON.parse(puntajesJSON); 
+        puntajes.sort((a,b)=>b.puntaje -a.puntaje);
+        let puntajeMasAlto = puntajes[0].puntaje; 
+        let parrafo = document.getElementById("ganador");
+        let corazon = "\uD83D\uDC9E"; 
+        let emojiCelebración = "\uD83C\uDF89";
+        if(puntajeMasAlto === 0){
+            let caritaTriste = "\uD83D\uDE22"; 
+            parrafo.textContent = `No hay ganador ${caritaTriste}`; 
+           
+        }
+        else if(puntajeMasAlto === puntajes[1].puntaje){
+            parrafo.textContent = `Tenemos 2 ganadores ${emojiCelebración}. ¡Felicidades ${puntajes[0].username} y ${puntajes[1].username} con ${puntajeMasAlto}! Gracias por jugar ${corazon}`; 
+        }
+        else{
+            parrafo.textContent = `Tenemos 1 ganador ${emojiCelebración}. ¡Felicidades  ${puntajes[0].username}! Tuviste ${puntajeMasAlto} puntos. Gracias por jugar ${corazon} `; 
+        }
+            
+        }
+         
+    }
+

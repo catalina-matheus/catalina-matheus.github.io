@@ -136,6 +136,14 @@ button{
 .matrizcuadradolleno{
     background-color: rgb(167, 126, 133); 
 }
+#ganador{
+    display: flex;
+    align-items: center;
+    font: 150% sans-serif;
+    color: rgb(64, 28, 34);
+    padding: 9px;  
+    justify-content: center;
+}
 
 
 /* #board{

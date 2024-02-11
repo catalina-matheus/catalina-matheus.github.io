@@ -40,13 +40,6 @@ function inicializarPuntajes(){
         }
     }
 }
-// // hace el conteo de números
-// function reconteoPuntos(matriz){
-//     const numerosSeleccionadosJSON = localStorage.getItem('numerosSeleccionados'); 
-//     let numerosSeleccionados=[]; 
-//     numerosSeleccionados = JSON.parse(numerosSeleccionadosJSON);
-
-// }
 
 // hace el conteo de puntos para línea horizontal: 
 function conteoHorizontal(matriz, numerosSeleccionados){
@@ -211,8 +204,6 @@ function revisarCartones(){
 
 }
 
-
-
 // función para crear la matriz: 
 function crearMatriz(matriz){
     // primero creamos una matriz vacía de tamanioxtamanio: 
@@ -248,7 +239,6 @@ function pintarMatriz(matriz){
     const container= document.getElementById('contenedorBingoCard'); 
     container.innerHTML = ''; 
     
-
     for(let fila= 0; fila<tamanio; fila++){
         const filaElemento = document.createElement('div'); 
         filaElemento.classList.add('matrizfila'); 
