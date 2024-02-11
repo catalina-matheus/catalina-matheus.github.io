@@ -141,6 +141,8 @@ document.addEventListener("DOMContentLoaded", function(){
         document.getElementById("tablaGanadores").style.display = "none"; 
         document.getElementById("tituloTabla").style.display = "none"; 
         mensajeNoHayGanadores.style.display = "block"; 
+        document.querySelectorAll(".listaGanadores").classList.add("oculto"); 
+
         
     }
 }

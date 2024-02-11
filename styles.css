@@ -154,4 +154,7 @@ tr{
     /* rgb(142, 142, 55) amarillo */
     /*  rgb(99, 154, 99) verde */
 }
+.oculto{
+    display: none; 
+}
 
